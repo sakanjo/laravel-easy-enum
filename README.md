@@ -237,4 +237,4 @@ Click the ["💖 Sponsor"](https://github.com/sponsors/sakanjo) at the top of th
 
 ## 📄 License
 
-[MIT License](https://github.com/sakanjo/laravel-easy-metrics/blob/master/LICENSE) © 2023-PRESENT [Salah Kanjo](https://github.com/sakanjo)
+[MIT License](https://github.com/sakanjo/laravel-easy-enums/blob/master/LICENSE) © 2023-PRESENT [Salah Kanjo](https://github.com/sakanjo)
