@@ -50,6 +50,16 @@ trait EasyEnum
         return ! $this->is($value);
     }
 
+    public function in(array $values): bool
+    {
+        return in_array($this, $values);
+    }
+
+    public function notIn(array $values): bool
+    {
+        return ! $this->in($values);
+    }
+
     // --- Serialization ---
 
     public static function tryFromName(string $name): ?static

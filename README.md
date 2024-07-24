@@ -107,10 +107,26 @@ $enum1->is($enum2); // boolean
 
 ### isNot
 
-Checks if the enum is not equal to another one.
+inverse of `is`.
 
 ```php
 $enum1->isNot($enum2); // boolean
+```
+
+### in
+
+Checks if the enum is in a list of enums.
+
+```php
+$enum->in([$enum1, $enum2]); // boolean
+```
+
+### notIn
+
+inverse of `in`.
+
+```php
+$enum->notIn([$enum1, $enum2]); // boolean
 ```
 
 ### tryFromName

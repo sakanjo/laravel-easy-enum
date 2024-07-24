@@ -31,6 +31,15 @@ it('compares correctly using `isNot`', function (ExampleEnum $a, ExampleEnum $b,
         [ExampleEnum::USD, ExampleEnum::NOPE, true],
     ]);
 
+it('compares correctly using `in`', function (ExampleEnum $value, array $values, bool $expected) {
+    assertEquals($value->in($values), $expected);
+})
+    ->with([
+        [ExampleEnum::USD, [ExampleEnum::USD], true],
+        [ExampleEnum::EURO, [ExampleEnum::USD, ExampleEnum::EURO], true],
+        [ExampleEnum::NOPE, [ExampleEnum::EURO, ExampleEnum::USD], false],
+    ]);
+
 it('returns correct case using `tryFromName`', function (string $case, ?ExampleEnum $expected) {
     assertEquals(ExampleEnum::tryFromName($case), $expected);
 })
