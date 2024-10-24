@@ -108,4 +108,11 @@ trait EasyEnum
     {
         return $this->getLabel();
     }
+
+    // --- DeferringDisplayableValue ---
+
+    public function resolveDisplayableValue()
+    {
+        return $this->getLabel();
+    }
 }

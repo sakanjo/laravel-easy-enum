@@ -31,6 +31,7 @@ Table of Contents
   * [values](#values)
   * [options](#options)
   * [toHtml](#tohtml)
+  * [resolveDisplayableValue](#resolvedisplayablevalue)
 * [Practical examples](#-practical-examples)
      * [Filamentphp](#filamentphp)
         * [Enum](#enum)
@@ -180,6 +181,14 @@ alias for `getLabel`, useful in blade.
 Status::Active->toHtml(); // Active
 ```
 
+### resolveDisplayableValue
+
+same as `toHtml` except it doesn't render HTML.
+
+```php
+Status::Active->resolveDisplayableValue(); // Active
+```
+
 ## 🔥 Practical examples
 
 #### Filamentphp
@@ -222,10 +231,11 @@ Forms\Components\Select::make('status')
 
 namespace App\Enums;
 
+use Illuminate\Contracts\Support\DeferringDisplayableValue;
 use Illuminate\Contracts\Support\Htmlable;
 use SaKanjo\EasyEnum;
 
-enum Status: int implements Htmlable
+enum Status: int implements Htmlable // or DeferringDisplayableValue
 {
     use EasyEnum;
 
