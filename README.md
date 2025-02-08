@@ -23,6 +23,7 @@ Table of Contents
   * [2. Create lang file](#2-create-lang-file)
 * [Methods](#-methods)
   * [getLabel](#getlabel)
+  * [translated](#translated)
   * [is](#is)
   * [isNot](#isnot)
   * [tryFromName](#tryfromname)
@@ -96,6 +97,14 @@ Returns the label of the enum value.
 
 ```php
 Status::Active->getLabel(); // Active
+```
+
+### translated
+
+Returns the translated label of the enum value.
+
+```php
+Status::Active->translated('tr'); // Aktif
 ```
 
 ### is

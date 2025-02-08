@@ -15,11 +15,20 @@ class TestCase extends BaseTestCase
 
     private function loadLangFiles(): void
     {
+        // EN
         $enums = require __DIR__.'/lang/en/enums.php';
         $lines = Arr::mapWithKeys($enums, fn ($value, $key) => [
             'enums.'.$key => $value,
         ]);
 
         Lang::addLines($lines, 'en');
+
+        // TR
+        $enums = require __DIR__.'/lang/tr/enums.php';
+        $lines = Arr::mapWithKeys($enums, fn ($value, $key) => [
+            'enums.'.$key => $value,
+        ]);
+
+        Lang::addLines($lines, 'tr');
     }
 }

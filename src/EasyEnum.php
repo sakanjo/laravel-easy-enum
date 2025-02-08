@@ -11,14 +11,14 @@ trait EasyEnum
 {
     // --- Translatable ---
 
-    private function getNamespace(): string
+    public function getTranslationNamespace(): string
     {
         $class = static::class;
 
         return "enums.$class.$this->name";
     }
 
-    private function defaultLabel(): string
+    public function getDefaultLabel(): string
     {
         return Str::of($this->name)
             ->headline()
@@ -26,16 +26,16 @@ trait EasyEnum
             ->ucfirst();
     }
 
-    private function translated(): string
+    public function translated(?string $locale = null): string
     {
-        return Lang::get($this->getNamespace());
+        return Lang::get($this->getTranslationNamespace(), locale: $locale);
     }
 
     public function getLabel(): string
     {
-        return Lang::has($this->getNamespace())
+        return Lang::has($this->getTranslationNamespace())
             ? $this->translated()
-            : $this->defaultLabel();
+            : $this->getDefaultLabel();
     }
 
     // --- Equality ---

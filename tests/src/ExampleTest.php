@@ -13,6 +13,16 @@ it('returns correct label using `getLabel`', function (ExampleEnum $enum, string
         [ExampleEnum::NOPE, 'N o p e'],
     ]);
 
+it('returns correct translation using `translated`', function (ExampleEnum $enum, ?string $locale, string $expected) {
+    assertEquals($enum->translated($locale), $expected);
+})
+    ->with([
+        [ExampleEnum::USD, 'en', 'USD'],
+        [ExampleEnum::EURO, null, 'EURO'],
+        [ExampleEnum::USD, 'tr', 'Dolar'],
+        [ExampleEnum::NOPE, null, 'enums.SaKanjo\EasyEnum\Tests\Enums\ExampleEnum.NOPE'],
+    ]);
+
 it('compares correctly using `is`', function (ExampleEnum $a, ExampleEnum $b, bool $expected) {
     assertEquals($a->is($b), $expected);
 })
